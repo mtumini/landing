@@ -125,13 +125,13 @@ $user = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : null;
                         </li>
                       <?php } else {?>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown">Hola <?php echo $user['usuario']; ?> <b class="caret"></b></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown">Holaa <?php echo $user['usuario']; ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
                                 <li>
                                     <div class="row">
                                         <div class="col-md-12">
                                                 <div class="form-group">
-                                                  <a href="php/logout.php">  <button  class="btn btn-danger btn-block">Cerrar sesión</button></a> 
+                                                  <a href="php/logout.php">  <button  class="btn btn-danger btn-block">Cerrar sesión</button></a>
                                                 </div>
                                         </div>
                                     </div>
