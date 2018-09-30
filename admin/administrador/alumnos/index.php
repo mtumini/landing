@@ -153,9 +153,14 @@ $resultado = $mysqli->query($sql);
                       <button class='btn btn-primary'>
                       Ver Materias
                         </button>
+                      </a>";
+                      if(!$user['id_docente']){
+                      echo "<a href='modificar_alumnos.php?id_alumno={$alumno['id_alumno']}'>
+                      <button class='btn btn-primary'>Modificar Alumno</button>
                       </a>
-                      </td>
-                    </tr>";
+                      </td>";
+                    }
+                    echo "</tr>";
                   }
 
                   ?>

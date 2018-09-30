@@ -139,7 +139,7 @@ $resultado = $mysqli->query($sql);
                 <?php
 
                   while ($docente = $resultado->fetch_assoc()) {
-                    $botonMateria = "<a href='eliminar_materias.php?id_docente={$docente['id_docente']}'><button class='btn btn-danger'>Eliminar Profesor</button></a> ";
+                    $botonMateria = "<a href='eliminar_profesores.php?id_docente={$docente['id_docente']}'><button class='btn btn-danger'>Eliminar Profesor</button></a> ";
                     $botonMateriaModificar = "<a href='modificar_materias.php?id_docente={$docente['id_docente']}'><button class='btn btn-primary'>Modificar Profesor</button></a> ";
                     echo "<tr>
                       <td>{$docente['nombre_docente']}</td>
