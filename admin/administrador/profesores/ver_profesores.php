@@ -3,16 +3,8 @@ include('../checkRole.php');
 require '../../../php/db/connect.php';
 
 
-$sql = "SELECT * FROM materias";
-
-
-
-
-
-
+$sql = "SELECT * FROM docentes";
 $resultado = $mysqli->query($sql);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -125,7 +117,7 @@ $resultado = $mysqli->query($sql);
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Listado de materias
+        Listado de Profesores
       </h1>
     </section>
 
@@ -139,18 +131,18 @@ $resultado = $mysqli->query($sql);
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
-                  <th>Materia</th>
+                  <th>Profesor</th>
 
                 </tr>
                 </thead>
                 <tbody>
                 <?php
 
-                  while ($materia = $resultado->fetch_assoc()) {
-                    $botonMateria = "<a href='eliminar_materias.php?id_materia={$materia['id_materia']}'><button class='btn btn-danger'>Eliminar Materia</button></a> ";
-                    $botonMateriaModificar = "<a href='modificar_materias.php?id_materia={$materia['id_materia']}'><button class='btn btn-primary'>Modificar Materia</button></a> ";
+                  while ($docente = $resultado->fetch_assoc()) {
+                    $botonMateria = "<a href='eliminar_materias.php?id_docente={$docente['id_docente']}'><button class='btn btn-danger'>Eliminar Profesor</button></a> ";
+                    $botonMateriaModificar = "<a href='modificar_materias.php?id_docente={$docente['id_docente']}'><button class='btn btn-primary'>Modificar Profesor</button></a> ";
                     echo "<tr>
-                      <td>{$materia['nombre_materia']}</td>
+                      <td>{$docente['nombre_docente']}</td>
                       <td>$botonMateria</td>
                       <td>$botonMateriaModificar</td>
                     </tr>";
@@ -160,8 +152,8 @@ $resultado = $mysqli->query($sql);
 
                 <tr>
                   <td>
-                    <a href="cargar_materias.php">
-                      <button type="button" name="button" class="btn btn-primary">Cargar Materia</button>
+                    <a href="cargar_profesores.php">
+                      <button type="button" name="button" class="btn btn-primary">Cargar Profesor</button>
                     </a>
                   </td>
                 </tr>

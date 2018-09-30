@@ -1,6 +1,6 @@
 <?php
-session_start();
-$user = (isset($_SESSION['usuario'])) ? $_SESSION['usuario'] : null;
+include('../checkRole.php');
+
 require '../../../php/db/connect.php';
 
 $idAlumno = $_POST['id_alumno'];

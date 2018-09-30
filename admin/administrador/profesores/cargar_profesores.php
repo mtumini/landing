@@ -1,16 +1,7 @@
+
 <?php
 include('../checkRole.php');
 require '../../../php/db/connect.php';
-
-
-$sql = "SELECT * FROM materias";
-
-
-
-
-
-
-$resultado = $mysqli->query($sql);
 
 
 ?>
@@ -80,7 +71,7 @@ $resultado = $mysqli->query($sql);
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="../../AdminLTE/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs" style="text-transform: uppercase;">
                 <?php
                   if(is_null($user)){
@@ -93,7 +84,7 @@ $resultado = $mysqli->query($sql);
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="../../AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   <?php
@@ -125,7 +116,7 @@ $resultado = $mysqli->query($sql);
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Listado de materias
+        Cargar Profesor
       </h1>
     </section>
 
@@ -136,38 +127,39 @@ $resultado = $mysqli->query($sql);
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                <tr>
-                  <th>Materia</th>
+              <form action="cargar_profesores_save.php" method="post">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Nombre</label>
+                  <input type="text" class="form-control" name="nombre" id="exampleInputEmail1" placeholder="Ingresar nombre">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Apellido</label>
+                  <input type="text" class="form-control" name="apellido" id="exampleInputEmail1" placeholder="Ingrear apellido">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Documento</label>
+                  <input type="text" class="form-control" name="documento" id="exampleInputEmail1" placeholder="Ingresar documento">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Ingresar Mail">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Alias de usuario</label>
+                  <input type="text" class="form-control" name="alias" id="exampleInputEmail1" placeholder="Ingrear Alias de usuario">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Password</label>
+                  <input type="password" class="form-control" name="password" id="exampleInputEmail1" placeholder="Ingresar Contraseña">
+                </div>
+              </div>
+              <!-- /.box-body -->
 
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-
-                  while ($materia = $resultado->fetch_assoc()) {
-                    $botonMateria = "<a href='eliminar_materias.php?id_materia={$materia['id_materia']}'><button class='btn btn-danger'>Eliminar Materia</button></a> ";
-                    $botonMateriaModificar = "<a href='modificar_materias.php?id_materia={$materia['id_materia']}'><button class='btn btn-primary'>Modificar Materia</button></a> ";
-                    echo "<tr>
-                      <td>{$materia['nombre_materia']}</td>
-                      <td>$botonMateria</td>
-                      <td>$botonMateriaModificar</td>
-                    </tr>";
-                  }
-
-                  ?>
-
-                <tr>
-                  <td>
-                    <a href="cargar_materias.php">
-                      <button type="button" name="button" class="btn btn-primary">Cargar Materia</button>
-                    </a>
-                  </td>
-                </tr>
-                </tbody>
-
-              </table>
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Cargar</button>
+              </div>
+            </form>
             </div>
             <!-- /.box-body -->
           </div>
